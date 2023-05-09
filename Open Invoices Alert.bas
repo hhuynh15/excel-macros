@@ -1,6 +1,19 @@
 Attribute VB_Name = "Module1"
 Option Explicit
 
+' This excel macro does the following:
+' - Send an email to the recipient in column X
+' - Uses the following subject: "Open Invoices"
+' - Uses the following body:
+' "Hello A,
+
+' You have B open invoices. That equates to C dollars. Please review and resolve to prevent the accounts from being placed on hold."
+' - A will be the recipients name. The values will be in column S2 to S2492.
+' - B will be the amount of invoices the recipient has. Count how many times their email appears in column X to find the value.
+' - C will be the total amount owed from their invoices. The invoice values are in column N. You can add up the values if the name matches with the recipient's name to find the value.
+' - Sends 29 emails every minute (limited due to O365 rate limit)
+' - Will apply the default signature to the email
+
 Sub SendEmails()
     Dim ws As Worksheet
     Dim OutApp As Object
